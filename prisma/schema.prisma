@@ -1,0 +1,68 @@
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Admin {
+  id           Int      @id @default(autoincrement())
+  username     String   @unique
+  passwordHash String
+  namaLengkap  String
+  jabatan      String
+  createdAt    DateTime @default(now())
+  umkmList     Umkm[]
+}
+
+model Umkm {
+  id           Int      @id @default(autoincrement())
+  adminId      Int
+  admin        Admin    @relation(fields: [adminId], references: [id])
+  namaUsaha    String
+  slug         String   @unique
+  namaPemilik  String
+  alamat       String
+  noTelepon    String
+  tahunBerdiri String?
+  fotoProfil   String?
+  sampulToko   String?
+  statusTampil Boolean  @default(true)
+  latitude     Float?
+  longitude    Float?
+  linkGmaps    String?  @db.Text
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  produkList   Produk[]
+  galeriList   Galeri[]
+}
+
+model Kategori {
+  id           Int      @id @default(autoincrement())
+  namaKategori String   @unique
+  produkList   Produk[]
+}
+
+model Produk {
+  id         Int      @id @default(autoincrement())
+  umkmId     Int
+  umkm       Umkm     @relation(fields: [umkmId], references: [id], onDelete: Cascade)
+  kategoriId Int
+  kategori   Kategori @relation(fields: [kategoriId], references: [id])
+  namaProduk String
+  deskripsi  String?  @db.Text
+  harga      Decimal  @db.Decimal(10, 2)
+  stok       Int      @default(0)
+  fotoProduk String?
+  createdAt  DateTime @default(now())
+}
+
+model Galeri {
+  id         Int    @id @default(autoincrement())
+  umkmId     Int
+  umkm       Umkm   @relation(fields: [umkmId], references: [id], onDelete: Cascade)
+  urlFoto    String
+  keterangan String?
+}
