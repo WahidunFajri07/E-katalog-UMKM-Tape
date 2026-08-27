@@ -258,7 +258,7 @@ export default function KelolaGaleriPage() {
                   <>
                     <Upload className="mx-auto mb-2 h-8 w-8 text-muted-foreground" />
                     <p className="text-sm font-medium text-foreground">Klik atau drag foto di sini</p>
-                    <p className="mt-1 text-xs text-muted-foreground">JPG, PNG, WebP — max 5MB</p>
+                    <p className="mt-1 text-xs text-muted-foreground">JPG, PNG, WebP — max 10MB</p>
                   </>
                 )}
               </div>
