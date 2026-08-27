@@ -339,6 +339,14 @@ export default function KelolaUmkmPage() {
                       {form[field.key as keyof typeof form] && (
                         <div className="relative h-20 w-20 overflow-hidden rounded-md border border-border">
                           <img src={form[field.key as keyof typeof form]} alt="Preview" className="h-full w-full object-cover" />
+                          <button
+                            type="button"
+                            onClick={() => setForm(prev => ({ ...prev, [field.key]: "" }))}
+                            className="absolute right-1 top-1 flex h-5 w-5 items-center justify-center rounded-full bg-destructive/80 text-white transition-colors hover:bg-destructive"
+                            title="Hapus Foto"
+                          >
+                            <X className="h-3 w-3" />
+                          </button>
                         </div>
                       )}
                       <input
