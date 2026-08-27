@@ -90,7 +90,7 @@ export function HeroCarousel({ products }: HeroCarouselProps) {
                 </div>
 
                 {/* Content Section */}
-                <div className="flex w-full flex-col justify-center px-6 py-6 sm:py-8 md:w-1/2 md:p-10 lg:w-2/5 lg:p-12 absolute bottom-0 left-0 right-0 bg-background/90 backdrop-blur-md md:relative md:bottom-auto md:bg-transparent md:backdrop-blur-none">
+                <div className="flex w-full flex-col justify-center px-6 pb-12 pt-6 sm:pb-14 sm:pt-8 md:w-1/2 md:p-10 lg:w-2/5 lg:p-12">
                   <div className="max-w-md">
                     <h2 className="font-heading text-xl font-bold tracking-tight text-foreground sm:text-3xl lg:text-4xl">
                       {product.namaProduk}
