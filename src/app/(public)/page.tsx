@@ -10,6 +10,8 @@ import { TrustStats } from "@/components/public/trust-stats";
 import { TestimonialSection } from "@/components/public/testimonial-section";
 import { Suspense } from "react";
 
+export const dynamic = 'force-dynamic';
+
 export default async function BerandaPage() {
   const [totalUmkm, totalProduk, featuredProducts, categories, latestProducts] = await Promise.all([
     prisma.umkm.count({ where: { statusTampil: true } }),

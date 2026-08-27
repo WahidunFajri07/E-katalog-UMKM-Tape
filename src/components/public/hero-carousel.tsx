@@ -70,7 +70,7 @@ export function HeroCarousel({ products }: HeroCarouselProps) {
             >
               <div className="flex flex-col md:flex-row h-full">
                 {/* Image Section */}
-                <div className="relative aspect-video w-full overflow-hidden bg-muted md:aspect-auto md:w-1/2 lg:w-3/5">
+                <div className="relative aspect-[4/5] sm:aspect-square w-full overflow-hidden bg-muted md:aspect-auto md:w-1/2 lg:w-3/5">
                   {product.fotoProduk ? (
                     <Image
                       src={product.fotoProduk}
